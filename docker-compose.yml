@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:alpine3.19
+    ports:
+      - 5432:5432
+    volumes:
+      - ./local-pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=changeit
+      - POSTGRES_USER=user
+      - POSTGRES_DB=kicksmarket
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: changeit
+    volumes:
+      - ./pgadmin-data:/var/lib/pgadmin

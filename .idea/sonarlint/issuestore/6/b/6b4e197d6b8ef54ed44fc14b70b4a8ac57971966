@@ -1,0 +1,10 @@
+
+­
+java:S1128"eRemove this unused import 'com.beowolf23.kicksmarket.security.providers.MihaiAuthenticationProvider'.(Þšýçúÿÿÿÿ8“±ÿúë1J$c3c3b570-5d88-47e2-871f-be3b3dbfdc18
+¬
+java:S1128
+"dRemove this unused import 'org.springframework.security.config.annotation.web.SessionManagementDsl'.(‡ÊÂ™øÿÿÿÿ8“±ÿúë1J$79bce352-d7f0-42ba-aed0-194e390ca1e9
+¿
+java:S1128"wRemove this unused import 'org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer'.(õ¿õÿúÿÿÿÿ8“±ÿúë1J$64351627-8c93-484d-93f9-768431f7b09d
+›
+java:S1128"XRemove this unused import 'org.springframework.security.config.Customizer.withDefaults'.(ÃÒþ†8“±ÿúë1J$31a0cd38-956d-4e73-922b-b42e374e0d0c
