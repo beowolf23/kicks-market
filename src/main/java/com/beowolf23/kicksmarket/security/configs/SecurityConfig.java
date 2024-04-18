@@ -1,5 +1,6 @@
 package com.beowolf23.kicksmarket.security.configs;
 
+import com.beowolf23.kicksmarket.model.dao.Role;
 import com.beowolf23.kicksmarket.security.providers.MihaiAuthenticationProvider;
 import com.beowolf23.kicksmarket.security.filters.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
@@ -37,7 +38,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(requests -> {
                     requests.requestMatchers("/auth/**").permitAll();
-                    requests.anyRequest().authenticated();
+                    requests.anyRequest().hasAnyAuthority("USER");
                 })
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
