@@ -1,4 +1,4 @@
-package com.beowolf23.kicksmarket.model.dto;
+package com.beowolf23.kicksmarket.model.dto.authentication;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

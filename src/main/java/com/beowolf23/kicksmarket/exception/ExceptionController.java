@@ -37,6 +37,6 @@ public class ExceptionController {
     private List<String> buildErrorMessages(Set<ConstraintViolation<?>> violations) {
         return violations.stream()
                 .map(violation -> violation.getPropertyPath().toString() + ": " + violation.getMessage())
-                .collect(Collectors.toList());
+                .toList();
     }
 }

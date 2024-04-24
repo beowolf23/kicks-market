@@ -1,12 +1,18 @@
 package com.beowolf23.kicksmarket.model.dao;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.sql.Date;
 import java.util.Set;
 
 @Entity
 @Table(name = "orders")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Order {
 
     @Id

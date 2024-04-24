@@ -2,9 +2,9 @@ package com.beowolf23.kicksmarket.service;
 
 import com.beowolf23.kicksmarket.model.dao.Role;
 import com.beowolf23.kicksmarket.model.dao.User;
-import com.beowolf23.kicksmarket.model.dto.AuthenticationRequest;
-import com.beowolf23.kicksmarket.model.dto.AuthenticationResponse;
-import com.beowolf23.kicksmarket.model.dto.RegistrationRequest;
+import com.beowolf23.kicksmarket.model.dto.authentication.AuthenticationRequest;
+import com.beowolf23.kicksmarket.model.dto.authentication.AuthenticationResponse;
+import com.beowolf23.kicksmarket.model.dto.authentication.RegistrationRequest;
 import com.beowolf23.kicksmarket.repository.UserRepository;
 import com.beowolf23.kicksmarket.security.JwtService;
 import org.springframework.security.authentication.AuthenticationManager;

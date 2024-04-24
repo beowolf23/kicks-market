@@ -1,9 +1,15 @@
 package com.beowolf23.kicksmarket.model.dao;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "products")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Product {
 
     @Id

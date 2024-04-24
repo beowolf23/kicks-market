@@ -5,6 +5,7 @@ import com.beowolf23.kicksmarket.security.providers.MihaiAuthenticationProvider;
 import com.beowolf23.kicksmarket.security.filters.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -16,6 +17,7 @@ import org.springframework.security.config.annotation.web.configurers.SessionMan
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -37,8 +39,36 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(requests -> {
+
+                    // SWAGGER
+                    requests.requestMatchers("/login",
+                            "/register",
+                            "/swagger-ui/**",
+                            "/v2/api-docs",
+                            "/swagger-resources",
+                            "/swagger-resources/**",
+                            "/configuration/ui",
+                            "/configuration/security",
+                            "/swagger-ui.html",
+                            "/webjars/**",
+                            "/v3/api-docs/**",
+                            "/swagger-ui/**").permitAll();
+                    // AUTHENTICATION
                     requests.requestMatchers("/auth/**").permitAll();
-                    requests.anyRequest().hasAnyAuthority("USER");
+
+                    // PRODUCTS
+                    requests.requestMatchers(HttpMethod.GET, "/products/**").permitAll();
+                    requests.requestMatchers(HttpMethod.POST, "/products/**").hasAnyAuthority("ADMIN");
+
+                    // USERS
+                    requests.requestMatchers("/users/**").authenticated();
+
+                    // ADDRESSES
+                    requests.requestMatchers("/addresses").authenticated();
+
+                    // REVIEWS
+                    requests.requestMatchers(HttpMethod.DELETE, "/reviews").hasAnyAuthority("ADMIN");
+                    requests.requestMatchers("/reviews/**").authenticated();
                 })
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

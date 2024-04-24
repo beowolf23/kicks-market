@@ -1,4 +1,4 @@
-package com.beowolf23.kicksmarket.model.dto;
+package com.beowolf23.kicksmarket.model.dto.authentication;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +12,5 @@ import lombok.Setter;
 public class AuthenticationRequest {
 
     private String email;
-
     private String password;
 }

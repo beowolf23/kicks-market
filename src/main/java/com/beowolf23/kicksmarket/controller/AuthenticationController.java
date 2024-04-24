@@ -1,10 +1,9 @@
 package com.beowolf23.kicksmarket.controller;
 
-import com.beowolf23.kicksmarket.model.dto.AuthenticationRequest;
-import com.beowolf23.kicksmarket.model.dto.AuthenticationResponse;
-import com.beowolf23.kicksmarket.model.dto.RegistrationRequest;
+import com.beowolf23.kicksmarket.model.dto.authentication.AuthenticationRequest;
+import com.beowolf23.kicksmarket.model.dto.authentication.AuthenticationResponse;
+import com.beowolf23.kicksmarket.model.dto.authentication.RegistrationRequest;
 import com.beowolf23.kicksmarket.service.AuthenticationService;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -16,9 +16,7 @@ public class KicksmarketApplication {
 
 	@Bean
 	public ApplicationRunner initializeDatabase() {
-		return args -> {
-			log.info("Ready to go!");
-		};
+		return args -> log.info("Ready to go!");
 
 	}
 
